@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+
 
 const Form = (props) => {
   const [enteredImageLink, setEnteredImageLink] = useState("");
@@ -7,7 +7,7 @@ const Form = (props) => {
   const [enteredItemPrice, setEnteredItemPrice] = useState("");
   const [enteredItemDescription, setEnteredItemDescription] = useState("");
   // const [data, setData] = useState([]);
-  const history = useHistory()
+  
 
   const ImageLinkHandler = (event) => {
     setEnteredImageLink(event.target.value);
@@ -36,6 +36,7 @@ const Form = (props) => {
     };
 
     props.onSaveItem(enteredValues)
+    // console.log(enteredValues)
 
     setEnteredImageLink('')
     setEnteredItemDescription('')

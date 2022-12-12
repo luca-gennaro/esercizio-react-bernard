@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 
 const Header = () => {
@@ -7,10 +8,10 @@ const Header = () => {
         <div className="logo">LOGO</div>
         <ul className={classes.link}>
           <li>
-            <a >Home</a>
+           <Link to="/">Home</Link> 
           </li>
           <li>
-            <a to="/addItem">Add Item</a>
+            <Link to="/add-item">Add Item</Link> 
           </li>
         </ul>
       </nav>

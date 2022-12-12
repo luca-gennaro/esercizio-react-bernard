@@ -6,16 +6,26 @@ import { DATA } from "./database";
 import AddItem from "./pages/AddItem";
 import { useState } from "react";
 import ItemDetails from "./components/ItemDetails";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
-  const items = DATA
+const [data, setData] = useState(DATA)
+setData({})
 
+
+
+  const onSaveItem = (item) =>{
+   
+    console.log("app component",item)
+  }
 
 
   return (
     <div className="container">
       <Header />
       <main>
+        <Routes>
+          <Route path="/" element={<div>
             <div className="slider">
               <ul>
                 <li>REACT PROPS, COMPONENTS AND ROUTES</li>
@@ -23,7 +33,7 @@ const App = () => {
               </ul>
             </div>
             <Wrapper>
-              {items.map((item) => (
+              {data.map((item) => (
                 <Items
                   key={item.id}
                   id={item.id}
@@ -33,6 +43,11 @@ const App = () => {
                 />
               ))}
             </Wrapper>
+          </div>}/>
+          <Route path="/add-item" element={<AddItem onSaveItem={onSaveItem}/>}/>
+        
+        </Routes>
+           
       </main>
     </div>
   );
