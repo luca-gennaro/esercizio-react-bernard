@@ -5,15 +5,17 @@ import Wrapper from "./components/UI/Wrapper";
 import { DATA } from "./database";
 import AddItem from "./pages/AddItem";
 import { useState } from "react";
-import ItemDetails from "./components/ItemDetails";
+import {ItemDetails} from "./components/ItemDetails";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
 const [data, setData] = useState(DATA)
 
   const onSaveItem = (newitem) =>{
-   setData(prevData=> [...prevData, newitem])
-    console.log("app component",newitem)
+   setData(prevData=> {
+   prevData.push(newitem)
+    return [...prevData]
+   }) 
   }
 
 
@@ -42,6 +44,7 @@ const [data, setData] = useState(DATA)
             </Wrapper>
           </div>}/>
           <Route path="/add-item" element={<AddItem onSaveItem={onSaveItem}/>}/>
+          <Route path="/item/:id" element={<ItemDetails />} />
         
         </Routes>
            
