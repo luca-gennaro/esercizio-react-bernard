@@ -36,7 +36,7 @@ const Form = (props) => {
     };
 
     props.onSaveItem(enteredValues)
-    // console.log(enteredValues)
+    
 
     setEnteredImageLink('')
     setEnteredItemDescription('')

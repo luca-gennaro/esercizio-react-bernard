@@ -10,13 +10,10 @@ import { Route, Routes } from "react-router-dom";
 
 const App = () => {
 const [data, setData] = useState(DATA)
-setData({})
 
-
-
-  const onSaveItem = (item) =>{
-   
-    console.log("app component",item)
+  const onSaveItem = (newitem) =>{
+   setData(prevData=> [...prevData, newitem])
+    console.log("app component",newitem)
   }
 
 
